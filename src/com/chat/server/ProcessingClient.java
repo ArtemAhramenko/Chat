@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class ProcessingClient implements Runnable{
+public class ProcessingClient implements Runnable {
 
     private PrintWriter outData;
     private Scanner inData;

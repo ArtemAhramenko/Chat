@@ -8,15 +8,14 @@ import java.util.Scanner;
 public class Client {
 
     private Client() {
-        final int SERVER_PORT = 4000;
-        final String SERVER_HOST = "localhost";
+        final int serverPort = 4000;
+        final String serverHost = "localhost";
 
         try {
-            Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+            Socket socket = new Socket(serverHost, serverPort);
             Scanner inData = new Scanner(socket.getInputStream());
             PrintWriter outData = new PrintWriter(socket.getOutputStream());
             threadInMessages(inData);
-
             outMessage(outData);
         } catch (Exception x) {
             x.printStackTrace();
