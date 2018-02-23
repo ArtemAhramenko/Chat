@@ -9,11 +9,11 @@ public class Server {
     private ArrayList<ProcessingClient> clients = new ArrayList<>();
 
     private Server() {
-        final int serverPort = 4000;
+        final int SERVER_PORT = 4000;
 
         try {
-            ServerSocket serverSocket = new ServerSocket(serverPort);
-            System.out.println("Waiting for a client...");
+            ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
+            System.out.println("Waiting for a client..");
 
             while (true) {
                 Socket clientSocket = serverSocket.accept();

@@ -8,11 +8,11 @@ import java.util.Scanner;
 public class Client {
 
     private Client() {
-        final int serverPort = 4000;
-        final String serverHost = "localhost";
+        final int SERVER_PORT = 4000;
+        final String SERVER_HOST = "localhost";
 
         try {
-            Socket socket = new Socket(serverHost, serverPort);
+            Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
             Scanner inData = new Scanner(socket.getInputStream());
             PrintWriter outData = new PrintWriter(socket.getOutputStream());
             threadInMessages(inData);
