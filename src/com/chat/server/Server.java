@@ -9,7 +9,7 @@ public class Server {
     private ArrayList<ProcessingClient> clients = new ArrayList<>();
 
     private Server() {
-        final int SERVER_PORT = 4000;
+        final int SERVER_PORT = 50;
 
         try {
             ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
@@ -26,10 +26,13 @@ public class Server {
     }
 
     void sendingMessageForClients(String message) {
-        for(ProcessingClient client : clients)
-        {
+        for(ProcessingClient client : clients) {
             client.sendingMessageForClient(message);
         }
+    }
+
+    void sendingMessageForClients(String message, int clientNumber) {
+        clients.get(clientNumber).sendingMessageForClient(message);
     }
 
     public static void main(String[] args) {

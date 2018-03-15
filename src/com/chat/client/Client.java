@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Client {
 
     private Client() {
-        final int SERVER_PORT = 4000;
+        final int SERVER_PORT = 50;
         final String SERVER_HOST = "localhost";
 
         try {
@@ -17,8 +17,8 @@ public class Client {
             PrintWriter outData = new PrintWriter(socket.getOutputStream());
             threadInMessages(inData);
             outMessage(outData);
-        } catch (Exception x) {
-            x.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
