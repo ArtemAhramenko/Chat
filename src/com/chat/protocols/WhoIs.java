@@ -31,9 +31,9 @@ public class WhoIs extends SocketClient {
     private InputStream getInputStream(String username) throws IOException {
         String buffer = username + "\r\n";
         byte[] encodedQuery = buffer.getBytes(Charsets.toCharset(null).name());
-        DataOutputStream output = new DataOutputStream(new BufferedOutputStream(this._output_, CAPACITY));
+        DataOutputStream output = new DataOutputStream(new BufferedOutputStream(_output_, CAPACITY));
         output.write(encodedQuery, 0, encodedQuery.length);
         output.flush();
-        return this._input_;
+        return _input_;
     }
 }

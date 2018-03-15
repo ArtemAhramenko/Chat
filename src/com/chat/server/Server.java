@@ -9,7 +9,7 @@ public class Server {
     private ArrayList<ProcessingClient> clients = new ArrayList<>();
 
     private Server() {
-        final int SERVER_PORT = 50;
+        final int SERVER_PORT = 4000;
 
         try {
             ServerSocket serverSocket = new ServerSocket(SERVER_PORT);

@@ -40,17 +40,17 @@ public class ProcessingClient implements Runnable {
     }
 
     private String getWhoisProtocol(String domainName) {
-        StringBuilder result = new StringBuilder("");
+        StringBuilder output = new StringBuilder("");
         WhoIs whois = new WhoIs();
         try {
             whois.connect(DEFAULT_HOST);
             String whoisData = whois.query("=" + domainName);
-            result.append(whoisData);
+            output.append(whoisData);
             whois.disconnect();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return result.toString();
+        return output.toString();
     }
 
     void sendingMessageForClient(String message) {

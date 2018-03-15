@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Client {
 
     private Client() {
-        final int SERVER_PORT = 50;
+        final int SERVER_PORT = 4000;
         final String SERVER_HOST = "localhost";
 
         try {
