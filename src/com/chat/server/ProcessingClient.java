@@ -14,7 +14,6 @@ public class ProcessingClient implements Runnable {
     private int clientNumber;
     private Scanner inData;
     private Server server;
-    private Date date = new Date();
 
     ProcessingClient(Socket clientSocket, Server server, int clientNumber) throws IOException {
         this.server = server;
@@ -29,7 +28,7 @@ public class ProcessingClient implements Runnable {
             if (inData.hasNext()) {
                 String inString = inData.nextLine();
                 if (inString.equalsIgnoreCase("get time")) {
-                    server.sendingMessageForClients("Server : " + date.toString(), clientNumber - 1);
+                    server.sendingMessageForClients("Server : " + new Date().toString(), clientNumber - 1);
                 } else if (inString.contains("whois ")) {
                     server.sendingMessageForClients(getWhoisProtocol(inString.substring(LEFT_BORDER, inString.length())), clientNumber - 1);
                 } else {
@@ -44,7 +43,7 @@ public class ProcessingClient implements Runnable {
         WhoIs whois = new WhoIs();
         try {
             whois.connect(DEFAULT_HOST);
-            String whoisData = whois.query(false, "=" + domainName);
+            String whoisData = whois.query("=" + domainName);
             output.append(whoisData);
             whois.disconnect();
         } catch (IOException e) {

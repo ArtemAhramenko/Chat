@@ -13,10 +13,8 @@ public class Client {
 
         try {
             Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
-            Scanner inData = new Scanner(socket.getInputStream());
-            PrintWriter outData = new PrintWriter(socket.getOutputStream());
-            threadInMessages(inData);
-            outMessage(outData);
+            threadInMessages(new Scanner(socket.getInputStream()));
+            outMessage(new PrintWriter(socket.getOutputStream()));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -41,7 +39,8 @@ public class Client {
                         System.out.println(inData.nextLine());
                     }
                 }
-            } catch (Exception ignored){}
+            }
+            catch (Exception ignored) {}
         }).start();
     }
 

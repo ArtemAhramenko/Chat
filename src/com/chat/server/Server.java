@@ -1,6 +1,7 @@
 package com.chat.server;
 
 import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.ArrayList;
 
 public class Server {
@@ -13,13 +14,14 @@ public class Server {
         try {
             ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
             System.out.println("Waiting for a client..");
+
             while (true) {
                 ProcessingClient newClient = new ProcessingClient(serverSocket.accept(), this, clients.size() + 1);
                 clients.add(newClient);
                 System.out.println("Client " + clients.size() + " added");
                 new Thread(newClient).start();
             }
-        } catch(Exception e) { e.printStackTrace(); }
+        } catch(Exception x) { x.printStackTrace(); }
     }
 
     void sendingMessageForClients(String message) {
