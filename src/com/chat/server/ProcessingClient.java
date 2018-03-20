@@ -44,7 +44,7 @@ public class ProcessingClient implements Runnable {
         WhoIs whois = new WhoIs();
         try {
             whois.connect(DEFAULT_HOST);
-            String whoisData = whois.query("=" + domainName);
+            String whoisData = whois.query(false, "=" + domainName);
             output.append(whoisData);
             whois.disconnect();
         } catch (IOException e) {

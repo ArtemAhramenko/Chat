@@ -41,8 +41,7 @@ public class Client {
                         System.out.println(inData.nextLine());
                     }
                 }
-            }
-            catch (Exception ignored){}
+            } catch (Exception ignored){}
         }).start();
     }
 
